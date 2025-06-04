@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de raíces de polinomios</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .error { color: red; }
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+        table { margin-top: 20px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de raíces de polinomios</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+
+    {% if resultado %}
+        <h2>Resultado final</h2>
+        <p>Raíz aproximada: <strong>{{ resultado.raiz }}</strong></p>
+        <p>Iteraciones realizadas: {{ resultado.iteraciones|length }}</p>
+
+        <h2>Tabla de iteraciones</h2>
+        <table>
+            <tr>
+                {% for encabezado in resultado.encabezados %}
+                    <th>{{ encabezado }}</th>
+                {% endfor %}
+            </tr>
+            {% for fila in resultado.iteraciones %}
+                <tr>
+                    {% for valor in fila %}
+                        <td>{{ valor }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        {% if resultado.imagen_url %}
+            <h2>Gráfica del polinomio</h2>
+            <img src="{{ resultado.imagen_url }}" alt="Gráfica del polinomio">
+        {% endif %}
+    {% endif %}
+</body>
+</html>

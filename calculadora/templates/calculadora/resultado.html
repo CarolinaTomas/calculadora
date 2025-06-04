@@ -1,0 +1,54 @@
+{% extends 'calculadora/base.html' %}
+{% block title %}Resultado de la Calculadora{% endblock %}
+
+{% block content %}
+<div class="calculadora">
+    <h1 style="text-align: center; color: #333;">Resultado del Cálculo</h1>
+
+    {% if resultado is not None %}
+        <div class="resultado">
+            <h2 style="color: #007bff;">Raíz Aproximada</h2>
+            <p style="font-size: 1.25rem;"><strong>{{ resultado }}</strong></p>
+        </div>
+    {% endif %}
+
+    {% if tabla %}
+        <div class="tabla">
+            <h2 style="margin-top: 30px;">Tabla de Iteraciones</h2>
+            <table>
+                <thead>
+                    <tr>
+                        {% for key in tabla.0.keys %}
+                            <th>{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fila in tabla %}
+                        <tr>
+                            {% for valor in fila.values %}
+                                <td>{{ valor }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% if grafico_url %}
+        <div class="grafico" style="margin-top: 30px;">
+            <h2>Gráfico de la Función</h2>
+            <img src="{{ grafico_url }}" alt="Gráfico de la función" style="max-width: 100%; border: 1px solid #ccc; border-radius: 10px;" />
+        </div>
+    {% endif %}
+
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="{% url 'calculadora' %}">
+            <button style="padding: 10px 20px; border-radius: 8px; background-color: #007bff; color: white; border: none;">
+                Volver a la Calculadora
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}
