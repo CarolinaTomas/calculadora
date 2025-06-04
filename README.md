@@ -63,7 +63,7 @@ http://127.0.0.1:8000/
 - Bootstrap (para estilos responsivos)
 
 ## Autores
-- Desarrollado por [Tu Nombre]
+- Desarrollado por Wendy Tomás
 
 ## Licencia
 Este proyecto está bajo la Licencia MIT.
