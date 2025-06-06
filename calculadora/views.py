@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .forms import MetodoForm
 import numpy as np
 import sympy as sp
+import matplotlib
+matplotlib.use('Agg')  # Importante para evitar errores de GUI en hilos no principales
 import matplotlib.pyplot as plt
 import os
 import uuid
