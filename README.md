@@ -8,6 +8,13 @@ Esta es una aplicación web desarrollada en Django que permite calcular raíces 
 
 Incluye una interfaz gráfica atractiva que permite visualizar la raíz aproximada, una tabla con las iteraciones realizadas y el gráfico de la función.
 
+## 🚀 Tecnologías Usadas
+**Python 3**
+- **Django**
+- **SymPy** (para derivadas simbólicas)
+- **NumPy** (para cálculos numéricos)
+- **Matplotlib** (para graficar funciones)
+- **TailwindCSS + HTML5 + JavaScript** (interfaz moderna)
 
 ## ⚙️ Requisitos Previos
 
@@ -67,6 +74,25 @@ python manage.py runserver
 ```
 http://127.0.0.1:8000/
 ```
+🧠 ¿Cómo Funciona Internamente?
+En el backend (views.py):
+
+Se procesa el formulario (MetodoForm)
+
+La función se transforma en expresiones simbólicas y derivadas con SymPy
+
+Se convierten en funciones numéricas con lambdify
+
+Según el método seleccionado:
+
+Se ejecuta la función correspondiente (metodo_biseccion, metodo_newton, metodo_newton_modificado)
+
+Se genera una tabla de iteraciones
+
+Se grafica la función con Matplotlib y se guarda en /media
+
+Se renderiza la plantilla calculadora/calculadora.html con los resultados
+
 
 ---
 
