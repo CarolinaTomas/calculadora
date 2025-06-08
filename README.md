@@ -49,7 +49,7 @@ http://127.0.0.1:8000/
 
 - `raiz/`: Aplicación principal donde se define la lógica de los métodos y la interfaz de usuario.
 - `metodos.py`: Contiene la implementación de los algoritmos de Bisección, Newton-Raphson y Newton-Raphson Modificado.
-- `graficas.py`: Se encarga de generar gráficas con Matplotlib.
+- `función gráfica: Se encarga de generar gráficas con Matplotlib, esta función se encuentra dentro de Views.py
 - `forms.py`: Formularios de entrada del usuario.
 - `views.py`: Lógica principal para procesar la solicitud del usuario y renderizar resultados.
 - `templates/`: Contiene la plantilla HTML `calcular.html`.
