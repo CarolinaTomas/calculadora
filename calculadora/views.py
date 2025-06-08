@@ -9,6 +9,7 @@ import os
 import uuid
 from django.conf import settings
 
+
 # Método de Bisección
 def metodo_biseccion(f, a, b, tol, max_iter):
     resultados = []
@@ -186,8 +187,8 @@ def calcular(request):
         form = MetodoForm()
 
     return render(request, 'calculadora/calculadora.html', {
-        'form': form,
-        'tabla': tabla,
+    'form': form,
+     'tabla': tabla,
         'resultado': resultado,
         'grafico_url': grafico_url
     })
