@@ -136,7 +136,8 @@
     if (form) {
       form.addEventListener('reset', () => {
         setTimeout(() => {
-          form.querySelectorAll('input, select, textarea').forEach(input => {
+          form.querySelectorAll('input:not([name="csrfmiddlewaretoken"]), select, textarea').forEach(input => {
+
             if (input.type === 'checkbox' || input.type === 'radio') {
               input.checked = false;
             } else if (input.tagName.toLowerCase() === 'select') {
